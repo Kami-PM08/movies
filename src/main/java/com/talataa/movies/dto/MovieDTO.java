@@ -1,7 +1,6 @@
 package com.talataa.movies.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.talataa.movies.entities.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,7 +26,7 @@ public class MovieDTO {
     Float rating;
     Integer ratingCount;
     List<Integer> genreIds;
-    List<Genre> genres;
+    List<GenreDTO> genres;
 
     String status;
     String tagline;

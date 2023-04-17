@@ -1,4 +1,6 @@
 movies:
   moviesDB:
-    url: https://api.themoviedb.org/3/
     apiKey: 55afa4e449495645c5ad6bfcbdb256d1
+    url: https://api.themoviedb.org/3/
+    authUrl: https://www.themoviedb.org/authenticate/
+    imgUrl: https://image.tmdb.org/t/p/original

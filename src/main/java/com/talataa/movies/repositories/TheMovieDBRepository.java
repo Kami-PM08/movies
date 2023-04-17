@@ -1,5 +1,6 @@
 package com.talataa.movies.repositories;
 
+import com.talataa.movies.dto.PlayListProps;
 import com.talataa.movies.entities.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
@@ -85,7 +86,7 @@ public class TheMovieDBRepository {
         return response;
     }
 
-    public Integer createList(String sessionId, CreateMoviesListProps props) throws NotAuthorizedException {
+    public Integer createList(String sessionId, PlayListProps props) throws NotAuthorizedException {
         Client client = ClientBuilder.newClient();
         String apiUrl = URL.concat("list")
                 .concat("?api_key=").concat(API_KEY)
@@ -100,13 +101,13 @@ public class TheMovieDBRepository {
         return (Integer) responseData.get("list_id");
     }
 
-    public MoviesList getList(Integer listId) {
+    public PlayList getList(Integer listId) {
         Client client = ClientBuilder.newClient();
         String apiUrl = URL.concat("list/").concat(listId.toString())
                 .concat("?api_key=").concat(API_KEY);
-        MoviesList response = client.target(apiUrl)
+        PlayList response = client.target(apiUrl)
                 .request(MediaType.APPLICATION_JSON)
-                .get(MoviesList.class);
+                .get(PlayList.class);
         client.close();
         return response;
     }
